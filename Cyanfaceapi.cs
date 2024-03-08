@@ -52,13 +52,13 @@ class SocketClient
             byte[] charList = new byte[4];
             for (int i = 0; i < 4; i++)
             {
-                if (System.BitConverter.IsLittleEndian)//Little Endian 小端序
+                if (System.BitConverter.IsLittleEndian)//Little Endian 
                 {
                     charList[i] = buffer[i + offset];
                 }
-                else//Big Endian 大端序
+                else//Big Endian 
                 {
-                    charList[i] = buffer[offset + (charList.Length - 1 - i)]; // 调整字节顺序
+                    charList[i] = buffer[offset + (charList.Length - 1 - i)]; 
                 }
             }
             int_value = System.BitConverter.ToInt32(charList, 0);
@@ -80,7 +80,7 @@ class SocketClient
                 }
                 else
                 {
-                    charList[i] = buffer[offset + (charList.Length - 1 - i)]; // 调整字节顺序
+                    charList[i] = buffer[offset + (charList.Length - 1 - i)]; 
                 }
             }
             shortValue = System.BitConverter.ToInt16(charList, 0);
@@ -201,7 +201,7 @@ class Program
     static void Main(string[] args)
     {
         SocketClient client = new SocketClient();
-        bool Isconnected = client.Connect("192.168.0.12", SocketClient.ServerPort);
+        bool Isconnected = client.Connect("127.0.0.1", SocketClient.ServerPort);
         while (true)
         {
             if(Isconnected)
